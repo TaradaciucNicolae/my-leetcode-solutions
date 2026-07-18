@@ -46,8 +46,3 @@ The greatest common divisor of 3 and 3 is 3.
 
  - `2 <= nums.length <= 1000`
 - `1 <= nums[i] <= 1000`
-
-## Submission
-
-- Runtime: 0 ms
-- Memory: 19.4 MB
