@@ -28,10 +28,7 @@ class Solution:
         
         
         
-        
-        
-        
-        
+       
         
         # brackets = {'(',')','{','}','[',']'}
         # while s:
