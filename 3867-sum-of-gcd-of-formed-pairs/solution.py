@@ -1,24 +1,25 @@
 class Solution:
     def gcdSum(self, nums: list[int]) -> int:
-        prefixGcd = []
-        max_so_far = 0
 
-        # Construim array-ul prefixGcd
-        for num in nums:
-            max_so_far = max(max_so_far, num)
-            prefixGcd.append(gcd(num, max_so_far))
+        n= len(nums)
+        mx_for_each = -1
+        prefixGcd = [0] *n
 
-        # Sortăm prefixGcd
-        prefixGcd.sort()
+        for i in range(n):
+            mx_for_each = max(mx_for_each, nums[i])
+            prefixGcd[i] = math.gcd(mx_for_each, nums[i])
 
-        # Facem perechi: cel mai mic cu cel mai mare
+        prefixGcd = sorted(prefixGcd)
+
+        sum_for_pairs = 0
+        
+
         left = 0
         right = len(prefixGcd) - 1
-        total = 0
 
         while left < right:
-            total += gcd(prefixGcd[left], prefixGcd[right])
+            sum_for_pairs += math.gcd(prefixGcd[left], prefixGcd[right])
             left += 1
             right -= 1
 
-        return total
+        return sum_for_pairs
