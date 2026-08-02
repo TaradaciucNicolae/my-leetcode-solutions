@@ -1,20 +1,25 @@
+from typing import List
+
 class Solution:
     def predictTheWinner(self, nums: List[int]) -> bool:
-        n = len(nums)
+        
+        left_border = 0
+        right_border = len(nums) -1
 
-        dp = [[0] * n for _ in range(n)]
+        def maxDiff(left, right):
+
+            # only one number left to choose from
+            if left == right:
+                return nums[left]
 
 
-        for i in range(n):
-            dp[i][i] = nums[i]
+            pickLeft = nums[left] - maxDiff(left + 1, right) # if the player picks left - the advantga the other player would have
 
-        for length in range(2, n + 1):
-            for left in range(n - length + 1):
-                right = left + length - 1
+            pickRight = nums[right] - maxDiff(left, right - 1)
 
-                take_left = nums[left] - dp[left + 1][right]
-                take_right = nums[right] - dp[left][right - 1]
+            return max(pickLeft, pickRight) # the player chooses the end that gives him the best advantage
 
-                dp[left][right] = max(take_left, take_right)
 
-        return dp[0][n - 1] >= 0
+
+
+        return maxDiff(left_border, right_border) >= 0 # if it's  >= 0, it means that the advantage of player 1 is >= advantage of player 2
