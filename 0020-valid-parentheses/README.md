@@ -1,7 +1,7 @@
 # 20. Valid Parentheses
 **Difficulty:** Easy
 **LeetCode:** [https://leetcode.com/problems/valid-parentheses/](https://leetcode.com/problems/valid-parentheses/)
-**Tags:** String, Stack
+**Tags:** String, Stack, Bracket Sequences
 
 ## Problem
 
