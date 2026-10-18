@@ -1,16 +1,11 @@
 class Solution:
-    def removeDuplicates(self, nums: List[int]) -> int:
+    def removeDuplicates(self, nums: list[int]) -> int:
+        output = []
 
-        n = len(nums)
-        i_for_no_dup = 1  # cause i=0 already is in place
-
-        for i in range(1,n):
-
-            if nums[i] != nums[i-1]:
-
-                nums[i_for_no_dup] = nums[i]
-                i_for_no_dup +=1
-
+        for each in nums:
+            if each not in output:
+                output.append(each)
 
         
-        return i_for_no_dup
+        nums[:] = output
+        return len(output)
